@@ -18,12 +18,10 @@ videojs.registerPlugin('lightboxCarousel', function() {
 
 			var buildPlaylistData = function () {
 			  // Build the video data array
-        console.log("playlistData= ", playlistData);
 				for (var i in playlistData) {
 					videoItem = {id: playlistData[i].id, name: playlistData[i].name, thumbnailURL: playlistData[i].thumbnail, shortDescription: playlistData[i].description};
 					videoArray.push(videoItem);
 				}
-				console.log("videoArray= ", videoArray);
 	    };
 
 			var buildCarousel = function () {
@@ -61,13 +59,10 @@ videojs.registerPlugin('lightboxCarousel', function() {
 	      // Make sure the player is loaded
         if (playerLoaded) {
           // Load the video
-          console.log("this id= ", $(this).attr("data-id"));
-					console.log("this= ", $(this));
 					var currentID = $(this).attr("data-id");
 					var index = videoArray.map(function(el) {
 					  return el.id;
 					}).indexOf(currentID);
-					console.log("index= ", index);
 
 					// Load the selected video
 					myPlayer.playlist.currentItem(index);
