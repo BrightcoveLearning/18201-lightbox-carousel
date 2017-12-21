@@ -13,29 +13,29 @@ videojs.registerPlugin('lightboxCarousel', function() {
         max = 0,
         currentVideo,
         playlistData,
-				videoItem = {},
-				videoArray = [];
+        videoItem = {},
+        videoArray = [];
 
-			var buildPlaylistData = function () {
-			  // Build the video data array
-				for (var i in playlistData) {
-					videoItem = {id: playlistData[i].id, name: playlistData[i].name, thumbnailURL: playlistData[i].thumbnail, shortDescription: playlistData[i].description};
-					videoArray.push(videoItem);
-				}
-	    };
+      var buildPlaylistData = function () {
+        // Build the video data array
+        for (var i in playlistData) {
+        	videoItem = {id: playlistData[i].id, name: playlistData[i].name, thumbnailURL: playlistData[i].thumbnail, shortDescription: playlistData[i].description};
+        	videoArray.push(videoItem);
+        }
+      };
 
-			var buildCarousel = function () {
-			  // Build the videos carousel
+      var buildCarousel = function () {
+        // Build the videos carousel
         template = Handlebars.compile(videosTemplate);
         results = template(videoArray);
         $carousel.prepend(results);
-			  // Instantiate the carousel
+        // Instantiate the carousel
         $carousel.featureCarousel({
             smallFeatureWidth:    .9,
             smallFeatureHeight:		.9,
             "trackerIndividual" : false
          });
-			  // Add event listener for clicks on videos
+        // Add event listener for clicks on videos
         $(".carousel-image").on("click", showAndLoad);
         $("#but_prev").click(function () {
             $carousel.prev();
@@ -51,21 +51,21 @@ videojs.registerPlugin('lightboxCarousel', function() {
         });
         $close.on("click", hideAndStop);
 
-			  // Let the video selector know the player is loaded
-		    playerLoaded = true;
-		  };
+        // Let the video selector know the player is loaded
+        playerLoaded = true;
+      };
 
 	    var showAndLoad = function (e) {
 	      // Make sure the player is loaded
         if (playerLoaded) {
           // Load the video
-					var currentID = $(this).attr("data-id");
-					var index = videoArray.map(function(el) {
-					  return el.id;
-					}).indexOf(currentID);
+          var currentID = $(this).attr("data-id");
+          var index = videoArray.map(function(el) {
+            return el.id;
+          }).indexOf(currentID);
 
-					// Load the selected video
-					myPlayer.playlist.currentItem(index);
+          // Load the selected video
+          myPlayer.playlist.currentItem(index);
 
           // Reveal the lightbox
           $lightbox.attr("class", "BCLSshow");
@@ -85,11 +85,11 @@ videojs.registerPlugin('lightboxCarousel', function() {
 	    videojs("myPlayerID").ready(function(){
 	      myPlayer = this;
 
-				myPlayer.one('loadedmetadata', function() {
-					 playlistData = myPlayer.playlist();
-					 buildPlaylistData();
-					 buildCarousel();
-				})
+        myPlayer.one('loadedmetadata', function() {
+        	 playlistData = myPlayer.playlist();
+        	 buildPlaylistData();
+        	 buildCarousel();
+        })
 	    });
 
 });
