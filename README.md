@@ -1,6 +1,6 @@
 <!-- BE SURE TO UPDATE NAME AND LINK TO DOC -->
 
-# 18152-lightbox-carousel
+# 18201-lightbox-carousel
 For more information about this sample see: https://support.brightcove.com/brightcove-player-sample-lightbox-carousel.
 
 <p>The purpose and structure of files in this repo are:</p>
