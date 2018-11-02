@@ -82,7 +82,7 @@ videojs.registerPlugin('lightboxCarousel', function() {
 	      $lightbox.attr("class", "BCLShide");
 	    };
 
-	    videojs("myPlayerID").ready(function(){
+	    videojs.getPlayer('myPlayerID').ready(function() {
 	      myPlayer = this;
 
         myPlayer.one('loadedmetadata', function() {
@@ -91,5 +91,4 @@ videojs.registerPlugin('lightboxCarousel', function() {
         	 buildCarousel();
         })
 	    });
-
 });

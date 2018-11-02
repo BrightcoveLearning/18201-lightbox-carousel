@@ -81,7 +81,7 @@
       padding: 0;
       width: 200px;
       height: 20px;
-      opacity: 70% !important;
+      opacity: .7 !important;
     }
     div.carousel-caption p {
       font-size: xx-small !important;
@@ -111,10 +111,10 @@
         <div id="feature-carousel-container" class="well well-small">
             <div id="feature-carousel" class="carousel" ></div>
             <div id="carousel-left">
-                <img src="http://solutions.brightcove.com/bcls/scripts/jQuery-Feature-Carousel/images/arrow-left.png" />
+                <img src="http://solutions.brightcove.com/bcls/scripts/jQuery-Feature-Carousel/images/arrow-left.png" alt="left image"/>
             </div>
             <div id="carousel-right">
-                <img src="http://solutions.brightcove.com/bcls/scripts/jQuery-Feature-Carousel/images/arrow-right.png" />
+                <img src="http://solutions.brightcove.com/bcls/scripts/jQuery-Feature-Carousel/images/arrow-right.png" alt="right image"/>
             </div>
         </div>
     </div>
@@ -122,13 +122,13 @@
     <div id="BCLSlightbox" class="BCLShide">
 
         <!-- Player embed code with id attribute -->
-        <video id="myPlayerID"
+        <video-js id="myPlayerID"
             data-account="1752604059001"
             data-playlist-id="5686354139001"
             data-player="default"
             data-embed="default"
-            class="video-js" controls></video>
-        <script src="//players.brightcove.net/1752604059001/default_default/index.min.js"></script>
+            class="video-js" controls></video-js>
+        <script src="https://players.brightcove.net/1752604059001/default_default/index.min.js"></script>
 
         <div id="BCLSclose" class="BCLSclose">Close</div>
     </div>
@@ -224,7 +224,7 @@
     	      $lightbox.attr("class", "BCLShide");
     	    };
 
-    	    videojs("myPlayerID").ready(function(){
+    	    videojs.getPlayer('myPlayerID').ready(function() {
     	      myPlayer = this;
 
             myPlayer.one('loadedmetadata', function() {
